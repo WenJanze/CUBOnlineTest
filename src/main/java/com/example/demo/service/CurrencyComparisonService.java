@@ -3,31 +3,14 @@ package com.example.demo.service;
 import com.example.demo.controller.ResponseEnum;
 import com.example.demo.controller.request.CurrencyComparisonUpdateRequest;
 import com.example.demo.controller.response.CurrencyComparisonResponse;
-import com.example.demo.controller.response.CurrencyPriceApiResponse;
-import com.example.demo.controller.response.CurrencyPriceResponse;
 import com.example.demo.database.CurrencyComparisonEntity;
 import com.example.demo.service.cache.CurrencyComparisonCacheService;
 import com.example.demo.service.exception.BusinessException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -37,7 +20,6 @@ public class CurrencyComparisonService {
 
     @Autowired
     private CurrencyComparisonCacheService currencyComparisonCacheService;
-
 
 
     public List<CurrencyComparisonResponse> getCurrencyComparisons() {
@@ -70,7 +52,6 @@ public class CurrencyComparisonService {
         if (request.getChinaName() != null) entity.setChinaName(request.getChinaName());
         if (request.getSymbol() != null) entity.setSymbol(request.getSymbol());
     }
-
 
 
     private CurrencyComparisonEntity findCurrencyComparisonById(Long id) {

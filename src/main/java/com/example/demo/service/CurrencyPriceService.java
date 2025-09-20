@@ -29,11 +29,10 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 public class CurrencyPriceService {
-    @Autowired
-    private CurrencyComparisonCacheService currencyComparisonCacheService;
-
     private final CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private CurrencyComparisonCacheService currencyComparisonCacheService;
 
     public CurrencyPriceApiResponse getCurrencyPrice() {
         try {
@@ -74,6 +73,7 @@ public class CurrencyPriceService {
             throw new RuntimeException(e);
         }
     }
+
     public JsonNode getCoinDesk() throws JsonProcessingException {
         HttpGet request = new HttpGet("https://api.coindesk.com/v1/bpi/currentprice.json");
         try (CloseableHttpResponse response = httpClient.execute(request)) {

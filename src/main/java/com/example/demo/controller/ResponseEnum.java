@@ -5,12 +5,12 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 public enum ResponseEnum {
-    SUCCESS(HttpStatus.OK,"成功"),
+    SUCCESS(HttpStatus.OK, "成功"),
     BAD_REQUEST(HttpStatus.BAD_REQUEST, "失敗"),
-    HAVE_ID(HttpStatus.BAD_REQUEST,"必須ID" ),
-    NOT_FIND(HttpStatus.BAD_REQUEST, "找不到資料" ),
-    INSERT_NOT_HAVE_ID(HttpStatus.BAD_REQUEST,"新增不能輸入ID" ),
-    EXIST_CURRENCY(HttpStatus.BAD_REQUEST, "已存在幣別資料" );
+    HAVE_ID(HttpStatus.BAD_REQUEST, "必須ID"),
+    NOT_FIND(HttpStatus.BAD_REQUEST, "找不到資料"),
+    INSERT_NOT_HAVE_ID(HttpStatus.BAD_REQUEST, "新增不能輸入ID"),
+    EXIST_CURRENCY(HttpStatus.BAD_REQUEST, "已存在幣別資料");
     private final HttpStatus httpStatus;
     private final String msg;
 

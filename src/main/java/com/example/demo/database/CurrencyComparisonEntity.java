@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="currency_comparison",indexes = {
-        @Index(name = "idx_currency",columnList = "currency")
+@Table(name = "currency_comparison", indexes = {
+        @Index(name = "idx_currency", columnList = "currency")
 })
 public class CurrencyComparisonEntity {
 
@@ -24,6 +24,7 @@ public class CurrencyComparisonEntity {
         this.chinaName = chinaName;
     }
 
-    public CurrencyComparisonEntity() {}
+    public CurrencyComparisonEntity() {
+    }
 
 }
